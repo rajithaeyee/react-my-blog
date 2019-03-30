@@ -10,11 +10,10 @@ const {
 
 class Blog extends Component{
     componentDidMount(){
-        axios.get('http://localhost:3001/posts').then(result=>{
-            console.log(result.data);
-        });
+        this.props.getAllPosts();
     }
     render(){
+        console.log(this.props.posts);
         return(
             <h1>Blog</h1>
         );

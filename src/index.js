@@ -5,9 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import reducer from './store/reducer';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import {getPosts} from './store/saga';
 
-const store = createStore(reducer);
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(getPosts);
 
 const app = (
     <Provider store={store}>

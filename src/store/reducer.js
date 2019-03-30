@@ -1,18 +1,17 @@
 import * as actionTypes from './actions';
 
 const initialState = {
-    posts:['a','b']
+    posts:[]
 }
 
 const reducer = (state = initialState, action) =>{
     
     switch(action.type){
-        case actionTypes.GET_POSTS:
+        case actionTypes.GET_POSTS_ASYNC:
         return {
             ...state,
-            posts: {
-                ...state.posts
-            }
+            posts: action.value
+            
         }
         case actionTypes.ADD_POST:
         return {
