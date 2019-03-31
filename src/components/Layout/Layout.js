@@ -10,7 +10,7 @@ const layout = (props)=>{
     return (
         <div>
             <Row>
-                <Col span={12}><NavBar /></Col>
+                <Col span={6}><NavBar /></Col>
                 <Col span={12}> <Route path="/" exact component={Blog}/></Col>
                 <Col span={12}><Route path="/new" exact component={NewPost}/></Col>
             </Row>
